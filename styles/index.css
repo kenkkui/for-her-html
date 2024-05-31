@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --green-btn: #98FB98;
+  --red-btn: #FF3131;
+}
+
 *,
 *::before,
 *::after {
@@ -8,13 +14,26 @@
 
 body {
   font-family: Poppins, sans-serif;
-  font-size: 16px;
   font-weight: 400;
   overflow: hidden;
 }
 
+button, a {
+  font: inherit;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 img {
   display: block;
+}
+
+li {
+  list-style: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -27,8 +46,51 @@ img {
     scroll-behavior: auto !important;
   }
 }
-.main-content {
+.App {
   height: 100vh;
   width: 100vw;
-  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container {
+  margin-top: 3rem;
+}
+.button-container ul {
+  display: flex;
+  gap: 3.2rem;
+}
+.button-container ul li {
+  transition: 0.05s linear;
+  transition-property: transform, opacity;
+}
+.button-container ul li:hover {
+  transform: scale(1.05) translateY(-4px);
+  opacity: 0.8;
+}
+.button-container ul li a {
+  padding: 14px 32px;
+  border-radius: 8px;
+  transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
+}
+.button-container ul li a[data-no-btn] {
+  background: var(--red-btn);
+  color: white;
+}
+.button-container ul li a[data-yes-btn] {
+  background: var(--green-btn);
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.main-content img {
+  width: 80%;
 }/*# sourceMappingURL=index.css.map */
