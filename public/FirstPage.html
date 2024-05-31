@@ -5,16 +5,14 @@
         <!-- <link rel="icon" href="%PUBLIC_URL%/favicon.ico" /> -->
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>:3</title>
+
+        <link rel="stylesheet" href="./styles/index.css">
+        <script defer src="app.js"></script>
     </head>
 
     <body>
         <div className="App">
-            <div
-                className={`mouse-leave-msg ${mouseOut || idle ? "active" : ""}`}
-                ref={element}
-            >
-                {!idle ? "Hey where do u think ure going>:(" : "Hey where are you:("}
-            </div>
+            <div className="mouse-msg"></div>
 
             <div className="main-content">
                 <img src="https://media.tenor.com/JhVlbsQoCboAAAAi/cute-dancing.gif" alt="cutie" />
@@ -22,17 +20,11 @@
             </div>
     
             <div className="btn-container">
-                {isButton ? (
-                  <button data-btn-no="true" ref={noButtonRef} onClick={handleClickNo}>
-                    No, i ain't wat😠
-                  </button>
-                ) : (
-                  <Link to={noTo} data-btn-no="true" ref={noButtonRef}></Link>
-                )}
+                <a to={noTo} data-btn-no="true" ref={noButtonRef}></a>
           
-                <Link data-btn-yes="true" to={yesTo} ref={yesButtonRef}>
+                <a data-btn-yes="true" to={yesTo} ref={yesButtonRef}>
                   Yes, I am obvi💁🏻
-                </Link>
+                </a>
               </div>
           </div>
     </body>
