@@ -18,14 +18,9 @@ body {
   overflow: hidden;
 }
 
-button, a {
-  font: inherit;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  border: none;
+a {
+  color: #000000;
   text-decoration: none;
-  cursor: pointer;
 }
 
 img {
@@ -73,12 +68,11 @@ li {
   padding: 14px 32px;
   border-radius: 8px;
   transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-  cursor: pointer;
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
 .button-container ul li a[data-no-btn] {
   background: var(--red-btn);
-  color: white;
+  color: #ffffff;
 }
 .button-container ul li a[data-yes-btn] {
   background: var(--green-btn);
