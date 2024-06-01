@@ -64,6 +64,22 @@ li {
   @include flexCenter();
 }
 
+#mouse-msg {
+  position: absolute;
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 12px rgba(0, 0, 0, 0.15));
+
+  opacity: 0;
+  visibility: 0;
+  transition: 100ms linear opacity;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
 .button-container {
   display: flex;
   align-items: center;
@@ -101,10 +117,12 @@ li {
 
 }
 
-.main-content {
+#main-content {
   @include flexCenter();
   flex-direction: column;
   text-align: center;
+
+  background-color: red;
 
   img {
     width: 80%;

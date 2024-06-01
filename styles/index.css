@@ -57,6 +57,20 @@ li {
   align-items: center;
 }
 
+#mouse-msg {
+  position: absolute;
+  background: #ffffff;
+  padding: 4px 12px;
+  border-radius: 8px;
+  filter: drop-shadow(2px 2px 12px rgba(0, 0, 0, 0.15));
+  opacity: 0;
+  visibility: 0;
+  transition: 100ms linear opacity;
+}
+#mouse-msg.active {
+  opacity: 1;
+}
+
 .button-container {
   display: flex;
   align-items: center;
@@ -90,14 +104,15 @@ li {
   background: var(--green-btn);
 }
 
-.main-content {
+#main-content {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
+  background-color: red;
 }
-.main-content img {
+#main-content img {
   width: 80%;
   margin-bottom: 3.2rem;
 }/*# sourceMappingURL=index.css.map */
