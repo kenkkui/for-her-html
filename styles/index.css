@@ -23,6 +23,14 @@ a {
   text-decoration: none;
 }
 
+button {
+  font: inherit;
+  border: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 img {
   display: block;
 }
@@ -50,31 +58,35 @@ li {
 }
 
 .button-container {
-  margin-top: 3rem;
-}
-.button-container ul {
   display: flex;
+  align-items: center;
   gap: 3.2rem;
+  height: 52px;
 }
-.button-container ul li {
+.button-container li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   transition: 0.05s linear;
   transition-property: transform, opacity;
+  height: 100%;
 }
-.button-container ul li:hover {
+.button-container li:hover {
   transform: scale(1.05) translateY(-4px);
   opacity: 0.8;
 }
-.button-container ul li a {
+.button-container li a {
   padding: 14px 32px;
   border-radius: 8px;
   transition: 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
   filter: drop-shadow(2px 2px 12px rgba(31, 31, 31, 0.2));
 }
-.button-container ul li a[data-no-btn] {
+.button-container li a[data-no-btn] {
   background: var(--red-btn);
   color: #ffffff;
 }
-.button-container ul li a[data-yes-btn] {
+.button-container li a[data-yes-btn] {
   background: var(--green-btn);
 }
 
@@ -87,4 +99,5 @@ li {
 }
 .main-content img {
   width: 80%;
+  margin-bottom: 3.2rem;
 }/*# sourceMappingURL=index.css.map */
