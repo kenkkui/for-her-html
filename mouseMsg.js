@@ -5,15 +5,22 @@ let idleTimeout;
 const idleTime = 2400;
 
 const state = {
-  mouseOut: false,
+  mouseout: false,
   idle: false,
 };
 
-const stateProxy = new Proxy(state, {
-  set(target, prop, value) {
-    target[prop] = value;
-  },
-});
+function updateMouseMsg() {
+  if (state.mouseout || state.idle) {
+    mouseMsgElem.classList.add("active");
+  } else {
+    mouseMsgElem.classList.remove("active");
+  }
+}
+
+function setState(prop, val) {
+  state[prop] = val;
+  updateMouseMsg();
+}
 
 function handlePointerMove(e) {
   const { clientX: x, clientY: y } = e;
@@ -32,27 +39,24 @@ function handlePointerMove(e) {
   window.clearTimeout(idleTimeout);
 
   idleTimeout = window.setTimeout(() => {
-    // mouseMsgElem.classList.add("active");
-    idle = true;
-    mouseMsgElem.innerHTML = "hey where are you:(";
+    setState("idle", true);
+    mouseMsgElem.innerHTML = "hey where are you :(";
   }, idleTime);
 
-  // mouseMsgElem.classList.remove("active");
+  setState("idle", false);
 }
 
 function handleMouseOut() {
-  mouseOut = true;
-  // mouseMsgElem.classList.add("active");
-  mouseMsgElem.innerHTML = "hey>:( where do you think you're going";
+  setState("mouseout", true);
+  mouseMsgElem.innerHTML = "hey where do you think you're going >:(";
 }
 
-if (mouseOut || idle === true) {
-  mouseMsgElem.classList.add("active");
-} else {
-  mouseMsgElem.classList.remove("active");
+function handleMouseOver() {
+  setState("mouseout", false);
 }
 
 export default function initEvents() {
   mainContentElem.addEventListener("mouseout", handleMouseOut);
+  mainContentElem.addEventListener("mouseover", handleMouseOver);
   document.body.addEventListener("pointermove", handlePointerMove);
 }
